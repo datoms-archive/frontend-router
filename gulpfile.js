@@ -1,27 +1,21 @@
-//Dependencies
-var gulp = require('gulp'),
-	util = require('gulp-util'),
-	babel = require("gulp-babel"),
-	concat = require("gulp-concat");
+//dependencies
+const gulp = require('gulp'),
+	babel = require('gulp-babel'),
+	umd = require('gulp-umd'),
+	rename = require('gulp-rename');
 
-//Source files
-var js_sources = [
-		'./src/frontendRouter.js'
-	],
-	js_dest = './dist/';
-
-//prepare prod js
-gulp.task('prepare_js', function() {
-	gulp.src(js_sources)
+gulp.task('default', function() {
+	gulp.src('./src/frontendRouter.js')
 		.pipe(
 			babel()
 		)
 		.pipe(
-			concat('frontendRouter.min.js')
+			umd()
 		)
 		.pipe(
-			gulp.dest(js_dest)
+			rename('index.js')
+		)
+		.pipe(
+			gulp.dest('./')
 		)
 });
-
-gulp.task('default', ['prepare_js']);
