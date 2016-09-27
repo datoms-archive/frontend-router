@@ -1,6 +1,6 @@
 {
   "name": "phoenixrobotix-frontend-router",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A javascript library to help with frontend routing.",
   "repository": {
     "type": "git",
